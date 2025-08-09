@@ -93,9 +93,13 @@ class DownloadExternalLora:
 
         # Extract the safetensors file from the tar
         with tarfile.open(temp_tar_path, "r") as tar:
-            lora_file = tar.extractfile("output/flux_train_replicate/lora.safetensors")
+            # Load LoRA weights from ostris/flux-dev-lora-trainer
+            lora_file = tar.extractfile("output/flux_train_replicate/lora.safetensors") 
             if lora_file is None:
-                raise ValueError("LoRA file not found in the downloaded tar")
+                # Load LoRA weights from replicate/fast-flux-trainer
+                lora_file = tar.extractfile("output/flux_train_replicate/flux_lora.safetensors") 
+                if lora_file is None:
+                    raise ValueError("LoRA file not found in the downloaded tar")
 
             os.makedirs(COMFYUI_LORA_DIR, exist_ok=True)
             with open(dest_path, "wb") as f:
