@@ -21,6 +21,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Resolve symbolic link to ComfyUI
+        run: cp -R /comfyanonymous/ComfyUI ./
+
       - name: Setup Cog
         uses: replicate/setup-cog@v2
         with:
