@@ -21,18 +21,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Rename symlink
-        run: mv ComfyUI ComfyUILnTemp
-
-      - name: Get symlink path
-        run: resolved_path=$(readlink -f ComfyUILnTemp)
-
-      - name: Create dir
-        run: mkdir ComfyUI
-
-      - name: Copy ComfyUI contents into local repo
-        run: cp -R $resolved_path/* ./ComfyUI/
-
       - name: Setup Cog
         uses: replicate/setup-cog@v2
         with:
@@ -40,9 +28,3 @@ jobs:
 
       - name: Push to Replicate
         run: cog push r8.im/${{ inputs.model_name }}
-
-      - name: Delete temp files
-        run: rm -r ComfyUI
-
-      - name: Rename symlink
-        run: mv ComfyUILnTemp ComfyUI
