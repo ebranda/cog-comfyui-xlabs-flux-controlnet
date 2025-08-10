@@ -1,0 +1,71 @@
+# This is a normal Python requirements.txt file.
+
+# You can add dependencies directly from PyPI:
+# 
+# numpy==1.26.4
+# torch==2.2.1
+# torchvision==0.17.1
+
+
+# You can also add Git repos as dependencies, but you'll need to add git to the system_packages list in cog.yaml:
+# 
+# build:
+#   system_packages:
+# "git"
+# 
+# Then you can use a URL like this:
+# 
+# git+https://github.com/huggingface/transformers
+# You can also pin Git repos to a specific commit:
+# 
+# git+https://github.com/huggingface/transformers@2d1602a
+
+git+https://github.com/comfyanonymous/ComfyUI@5e806f5
+
+
+torch==2.2.1
+torchvision==0.17.1
+torchaudio
+torchsde
+einops
+transformers>=4.28.1
+tokenizers>=0.13.3
+sentencepiece
+safetensors>=0.3.0
+aiohttp
+accelerate
+pyyaml
+Pillow
+scipy
+tqdm
+psutil
+spandrel
+soundfile
+kornia>=0.7.1
+websocket-client==1.6.3
+diffusers>=0.30.0
+
+# fix for pydantic issues in cog
+# https://github.com/replicate/cog/issues/1623
+albumentations==1.4.3
+
+# ComfyUI_essentials
+numba
+
+# comfyui_controlnet_aux
+# https://github.com/Fannovel16/comfyui_controlnet_aux/blob/main/requirements.txt
+importlib_metadata
+opencv-python-headless>=4.0.1.24
+filelock
+numpy
+scikit-image
+python-dateutil
+mediapipe
+svglib
+fvcore
+yapf
+omegaconf
+ftfy
+addict
+yacs
+trimesh[easy]
